@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/pix-clips/static/css/main.7f9da737.css",
+    "main.js": "/pix-clips/static/js/main.3a558e34.js",
+    "static/media/img.jpeg": "/pix-clips/static/media/img.a58b516d95a041c8f789.jpeg",
+    "index.html": "/pix-clips/index.html",
+    "main.7f9da737.css.map": "/pix-clips/static/css/main.7f9da737.css.map",
+    "main.3a558e34.js.map": "/pix-clips/static/js/main.3a558e34.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.7f9da737.css",
+    "static/js/main.3a558e34.js"
+  ]
+}
