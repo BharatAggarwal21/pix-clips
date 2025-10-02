@@ -1,25 +1,65 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import Photos from "./components//Photos/Photos";
+import Videos from "./components/Videos/Videos";
+import Styles from "./App.module.css";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      buttons: true,
+      photos: false,
+      videos: false,
+    };
+  }
+
+  handleChange = (val) => {
+    console.log(val);
+    if (val === "photos") {
+      this.setState({ photos: true, buttons: false, videos: false });
+    } else if (val === "videos") {
+      this.setState({ videos: true, buttons: false, photos: false });
+    } else if (val === "buttons") {
+      this.setState({ videos: false, buttons: true, photos: false });
+    }
+  };
+
+  render() {
+    const { buttons, photos, videos } = this.state;
+    console.log(this.state);
+    return (
+      <div>
+        {buttons && (
+          <div className={Styles.main}>
+            <div className={Styles.Wrapper}>
+              <p>
+                {" "}
+                Explore stock photos & videos <br></br>shared by talented
+                creators.
+              </p>
+              <div className={Styles.flexBox}>
+                <button
+                  className={Styles.btn}
+                  onClick={() => this.handleChange("photos")}
+                >
+                  Photos
+                </button>
+                <button
+                  className={Styles.btn}
+                  onClick={() => this.handleChange("videos")}
+                >
+                  Videos
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {videos && <Videos handleChange={this.handleChange} />}
+        {photos && <Photos handleChange={this.handleChange} />}
+      </div>
+    );
+  }
 }
 
 export default App;
